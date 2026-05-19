@@ -389,9 +389,11 @@ ul {
 }
 
 .construction-card {
-  background-color: var(--color-bg);
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(85, 131, 182, 0.12);
+  border: 1px solid rgba(85, 131, 182, 0.18);
   padding: 2.2rem var(--spacing-lg);
   max-width: 800px;
   width: 100%;
@@ -989,10 +991,10 @@ ul {
 
 /* Glassmorphism Card in Dark Mode */
 [data-theme="dark"] .construction-card {
-  background-color: rgba(0, 48, 97, 0.72);
-  border: 1px solid rgba(0, 174, 240, 0.22);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(0, 48, 97, 0.48);
+  border: 1px solid rgba(0, 174, 240, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   box-shadow: 
     0 20px 40px -15px rgba(0, 0, 0, 0.6), 
     0 0 30px rgba(0, 174, 240, 0.04);
