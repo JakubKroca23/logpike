@@ -112,25 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. DARK/LIGHT THEME TOGGLE
-  const themeToggle = document.getElementById('theme-toggle');
-  
-  if (themeToggle) {
-    // Check for saved theme preference, default to light if not present
-    const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
-    
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    });
-  }
+  // Enforce dark theme permanently and set it in localStorage
+  localStorage.setItem('theme', 'dark');
+  document.documentElement.setAttribute('data-theme', 'dark');
 });
