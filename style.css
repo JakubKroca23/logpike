@@ -164,7 +164,7 @@ ul {
   align-items: center;
 }
 
-.phone-link {
+.phone-info {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
@@ -202,19 +202,6 @@ ul {
 .phone-number strong {
   font-weight: 700;
   color: var(--color-logo-navy);
-}
-
-/* Phone Hover Interactions */
-.phone-link:hover {
-  border-color: rgba(85, 131, 182, 0.3);
-  box-shadow: 0 6px 20px rgba(85, 131, 182, 0.08);
-  transform: translateY(-1px);
-}
-
-.phone-link:hover .phone-icon-wrapper {
-  background-color: var(--color-primary-blue);
-  color: var(--color-text-white);
-  transform: rotate(15deg);
 }
 
 /* Company Address Details */
