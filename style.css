@@ -8,10 +8,11 @@
   /* Color Palette (Mockup Steel Blue + Logo Gradient Tones) */
   --color-bg: #ffffff;
   --color-bg-subtle: #f8fafc;
-  --color-primary-blue: #5583b6; /* Exact steel blue from user mockup */
-  --color-primary-hover: #436d9d;
-  --color-logo-navy: #002d5a; /* Deep navy from logo text */
-  --color-logo-cyan: #00aef0; /* Cyan from logo icon */
+  --color-primary-blue: #002d5a; /* Exact deep navy from logo text */
+  --color-primary-hover: #001f3f; /* Darker navy for hover states */
+  --color-accent-cyan: #00aef0; /* Exact brilliant cyan from logo icon */
+  --color-logo-navy: #002d5a;
+  --color-logo-cyan: #00aef0;
   
   /* Text Colors */
   --color-text-dark: #1a202c; /* Bold text */
@@ -291,7 +292,7 @@ ul {
   left: 50%;
   width: 0;
   height: 2px;
-  background-color: var(--color-text-white);
+  background-color: var(--color-accent-cyan);
   transition: all var(--transition-normal);
   transform: translateX(-50%);
 }
@@ -382,8 +383,8 @@ ul {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background-color: rgba(85, 131, 182, 0.08);
-  color: var(--color-primary-blue);
+  background-color: rgba(0, 174, 240, 0.08);
+  color: var(--color-accent-cyan);
   margin-bottom: 1.2rem;
 }
 
@@ -401,7 +402,7 @@ ul {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 1px solid rgba(85, 131, 182, 0.3);
+  border: 1px solid rgba(0, 174, 240, 0.35);
   animation: pulse-ring 2.5s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
   z-index: 1;
 }
