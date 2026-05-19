@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  logpike-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: logpike-landing-page
+    restart: always
+    
+    # OPTION A: Standard port mapping (disabled for Option B to avoid port conflicts with Appwrite)
+    # ports:
+    #   - "80:80"
+      
+    # OPTION B: Integration with Appwrite's Traefik proxy (Active)
+    # Appwrite's built-in Traefik routes traffic and handles SSL certificates automatically.
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.logpike-landing.rule=Host(`logpike.cz`) || Host(`www.logpike.cz`)"
+      - "traefik.http.routers.logpike-landing.entrypoints=websecure"
+      - "traefik.http.routers.logpike-landing.tls=true"
+      - "traefik.http.routers.logpike-landing.tls.certresolver=letsencrypt"
+      - "traefik.http.services.logpike-landing.loadbalancer.server.port=80"
+
+    environment:
+      - NODE_ENV=production
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# Connect directly to Appwrite's network gateway. 
+# NOTE: Check your Appwrite docker network name (standardly "appwrite" or "appwrite_gateway").
+# You can see it by running: docker network ls
+networks:
+  default:
+    external:
+      name: appwrite
+
+
