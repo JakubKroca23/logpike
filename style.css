@@ -928,8 +928,8 @@ ul {
 
 /* Dark Mode Variable Swapping */
 [data-theme="dark"] {
-  --color-bg: #000c18; /* Perfect deep brand navy background matching the logo */
-  --color-bg-subtle: #00152c; /* Lighter container navy */
+  --color-bg: #001224; /* Slightly lighter deep brand navy background */
+  --color-bg-subtle: #001b35; /* Softly lightened container navy */
   --color-text-dark: #ffffff; /* Pure white for headings */
   --color-text-medium: #cbd5e1; /* Slate-300 readable description text */
   --color-text-light: #64748b; /* Slate-500 subtexts */
