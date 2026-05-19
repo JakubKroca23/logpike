@@ -10,11 +10,11 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Logpike - Webové stránky se připravují">
   <meta property="og:description" content="LOGPIKE s.r.o. - Webové stránky se připravují / Under Construction. Děkujeme za pochopení.">
-  <meta property="og:image" content="/logo.png">
+  <meta property="og:image" content="/logo.png?v=3">
   <meta property="og:type" content="website">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="icon" type="image/png" href="/logo.png?v=3">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,21 +36,40 @@
         <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" />
       </defs>
       <g class="parallax">
-        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(85, 131, 182, 0.06)" />
-        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0, 174, 240, 0.04)" />
-        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(85, 131, 182, 0.02)" />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255, 255, 255, 0.6)" />
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0, 45, 90, 0.07)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0, 174, 240, 0.05)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0, 45, 90, 0.03)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" class="wave-foreground" />
       </g>
     </svg>
   </div>
 
   <div class="wrapper">
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle-btn fade-in-delay-1" aria-label="Přepnout tmavý/světlý režim">
+      <!-- Sun Icon (visible in dark mode) -->
+      <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <!-- Moon Icon (visible in light mode) -->
+      <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
     <!-- Header Section -->
     <header class="header container">
       <!-- Logo -->
       <div class="logo-container fade-in-delay-1">
         <a href="/" class="logo-link" title="Logpike">
-          <img src="/logo.png" alt="Logpike Logo" class="logo-img">
+          <img src="/logo.png?v=3" alt="Logpike Logo" class="logo-img">
         </a>
       </div>
 
