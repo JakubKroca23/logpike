@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     'kontakty': {
       title: 'Kontakty / Contacts',
-      cz: 'Kompletní sekce „Kontakty“ se připravuje. Aktuální kontakt a adresu naleznete v záhlaví této stránky.',
-      en: 'The complete "Contacts" section is being prepared. You can find our current phone contact and billing address in the header of this page.'
+      cz: 'Kompletní sekce „Kontakty“ se připravuje. Aktuální e-mailový kontakt a adresu naleznete v záhlaví této stránky.',
+      en: 'The complete "Contacts" section is being prepared. You can find our current email contact and billing address in the header of this page.'
     }
   };
 

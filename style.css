@@ -158,27 +158,34 @@ ul {
   transform: scale(1.02);
 }
 
-/* Phone container with dynamic call action */
-.phone-container {
+/* Email container with dynamic interactive action */
+.email-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.phone-info {
+.email-info {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-sm);
   background-color: var(--color-bg);
-  border: 1px solid rgba(85, 131, 182, 0.1);
+  border: 1px solid rgba(85, 131, 182, 0.15);
   border-radius: var(--border-radius-lg);
   color: var(--color-text-dark);
   font-family: var(--font-headers);
   box-shadow: 0 4px 15px rgba(85, 131, 182, 0.04);
+  transition: all var(--transition-normal);
 }
 
-.phone-icon-wrapper {
+.email-info:hover {
+  border-color: var(--color-accent-cyan);
+  box-shadow: 0 6px 20px rgba(0, 174, 240, 0.12);
+  transform: translateY(-1px);
+}
+
+.email-icon-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,19 +197,27 @@ ul {
   transition: all var(--transition-normal);
 }
 
-.phone-icon {
+.email-info:hover .email-icon-wrapper {
+  background-color: var(--color-primary-blue);
+  color: var(--color-text-white);
+}
+
+.email-icon {
   width: 18px;
   height: 18px;
 }
 
-.phone-number {
+.email-address {
   font-size: 0.95rem;
   letter-spacing: 0.5px;
+  color: inherit;
+  transition: color var(--transition-normal);
 }
 
-.phone-number strong {
+.email-address strong {
   font-weight: 700;
-  color: var(--color-logo-navy);
+  color: inherit;
+  transition: color var(--transition-normal);
 }
 
 /* Company Address Details */
@@ -690,7 +705,7 @@ ul {
     grid-column: 1;
   }
 
-  .phone-container {
+  .email-container {
     grid-column: 2;
     justify-content: flex-end;
   }
@@ -738,7 +753,7 @@ ul {
     padding-bottom: var(--spacing-md);
   }
 
-  .phone-container {
+  .email-container {
     width: 100%;
     justify-content: center;
   }
@@ -983,24 +998,35 @@ ul {
     0 0 30px rgba(0, 174, 240, 0.04);
 }
 
-[data-theme="dark"] .phone-info {
+[data-theme="dark"] .email-info {
   background-color: rgba(0, 27, 53, 0.8);
   border-color: rgba(0, 174, 240, 0.15);
   color: #ffffff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-[data-theme="dark"] .phone-number {
-  color: #f1f5f9; /* Extra bright phone body text */
+[data-theme="dark"] .email-info:hover {
+  border-color: var(--color-accent-cyan);
+  background-color: rgba(0, 37, 73, 0.9);
+  box-shadow: 0 6px 22px rgba(0, 174, 240, 0.25);
 }
 
-[data-theme="dark"] .phone-number strong {
-  color: var(--color-accent-cyan); /* High contrast vibrant cyan matching logo cost */
+[data-theme="dark"] .email-address {
+  color: #ffffff;
 }
 
-[data-theme="dark"] .phone-icon-wrapper {
+[data-theme="dark"] .email-address strong {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .email-icon-wrapper {
   background-color: rgba(0, 174, 240, 0.1);
   color: var(--color-accent-cyan);
+}
+
+[data-theme="dark"] .email-info:hover .email-icon-wrapper {
+  background-color: var(--color-accent-cyan);
+  color: #00070e;
 }
 
 [data-theme="dark"] .company-address {
