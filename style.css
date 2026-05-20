@@ -413,12 +413,15 @@ ul {
   z-index: 1;
   pointer-events: none;
   transition: background-color var(--transition-normal);
+  /* Step 6: Content overlay (Z-index 1) fades in softly using elements animation keyframes */
+  opacity: 0;
+  animation: element-fade-in 0.8s ease forwards 1.35s;
 }
 
 /* Ambient looping background video styled behind the card */
 
 .construction-card {
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-lg);
@@ -698,46 +701,61 @@ ul {
   }
 }
 
-/* Fade-in transitions for premium page entrance */
+/* Fade-in transitions for premium page entrance from highest Z-index to lowest */
 .fade-in-delay-1,
 .fade-in-delay-2,
 .fade-in-delay-3,
 .fade-in-delay-4,
-.fade-in-delay-5,
-.fade-in-delay-6 {
+.fade-in-delay-5 {
   opacity: 0;
-  transform: translateY(12px);
-  animation: element-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: element-fade-in 0.8s ease forwards;
 }
 
 .fade-in-delay-1 {
-  animation-delay: 0.1s;
+  animation-delay: 0.1s; /* Step 1: Logo, Email, Address inside header (Z-index 40) */
 }
 
 .fade-in-delay-2 {
-  animation-delay: 0.2s;
+  animation-delay: 0.35s; /* Step 2: MENU nav-bar-section (Z-index 30) */
 }
 
 .fade-in-delay-3 {
-  animation-delay: 0.3s;
+  animation-delay: 0.6s; /* Step 3: Footer footer-wrapper (Z-index 20) */
 }
 
 .fade-in-delay-4 {
-  animation-delay: 0.4s;
+  animation-delay: 0.85s; /* Step 4: Central construction-card (Z-index 10) */
 }
 
 .fade-in-delay-5 {
-  animation-delay: 0.5s;
+  animation-delay: 1.1s; /* Step 5: Sea background waves (Z-index 5) */
 }
 
-.fade-in-delay-6 {
-  animation-delay: 0.7s;
+/* Step 7: Decorative background circles (Z-index 0 / lowest) animates softly to preserve transparency */
+.decor-circle.fade-in-delay-7 {
+  opacity: 0;
+  animation: circle-fade-in 1.2s ease forwards 1.6s;
+}
+
+@keyframes circle-fade-in {
+  to {
+    opacity: 0.3; /* Base light mode opacity */
+  }
+}
+
+[data-theme="dark"] .decor-circle.fade-in-delay-7 {
+  animation: circle-fade-in-dark 1.2s ease forwards 1.6s;
+}
+
+@keyframes circle-fade-in-dark {
+  to {
+    opacity: 0.22; /* Base dark mode opacity */
+  }
 }
 
 @keyframes element-fade-in {
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
