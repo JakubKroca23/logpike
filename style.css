@@ -8,16 +8,22 @@
   /* Color Palette (Mockup Steel Blue + Logo Gradient Tones) */
   --color-bg: #ffffff;
   --color-bg-subtle: #f8fafc;
-  --color-primary-blue: #002d5a; /* Exact deep navy from logo text */
-  --color-primary-hover: #001f3f; /* Darker navy for hover states */
-  --color-accent-cyan: #00aef0; /* Exact brilliant cyan from logo icon */
+  --color-primary-blue: #002d5a;
+  /* Exact deep navy from logo text */
+  --color-primary-hover: #001f3f;
+  /* Darker navy for hover states */
+  --color-accent-cyan: #00aef0;
+  /* Exact brilliant cyan from logo icon */
   --color-logo-navy: #002d5a;
   --color-logo-cyan: #00aef0;
-  
+
   /* Text Colors */
-  --color-text-dark: #1a202c; /* Bold text */
-  --color-text-medium: #4a5568; /* Body/English text */
-  --color-text-light: #718096; /* Decorative details */
+  --color-text-dark: #1a202c;
+  /* Bold text */
+  --color-text-medium: #4a5568;
+  /* Body/English text */
+  --color-text-light: #718096;
+  /* Decorative details */
   --color-text-white: #ffffff;
 
   /* Typography */
@@ -50,15 +56,21 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   background-color: var(--color-bg);
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   color: var(--color-text-medium);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden; /* Lock viewport scrollbar completely */
+  overflow: hidden;
+  /* Lock viewport scrollbar completely */
   line-height: 1.5;
 }
 
@@ -76,7 +88,8 @@ ul {
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Constrain exactly to viewport height to avoid scrollbar */
+  height: 100vh;
+  /* Constrain exactly to viewport height to avoid scrollbar */
   width: 100%;
   position: relative;
   z-index: 10;
@@ -113,7 +126,7 @@ ul {
   right: -5%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, var(--color-primary-blue) 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, var(--color-primary-blue) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
 .circle-2 {
@@ -121,11 +134,19 @@ ul {
   left: -5%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, var(--color-logo-cyan) 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, var(--color-logo-cyan) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
 
 /* 4. HEADER SECTION (Logo, Phone, Address) */
+.header-wrapper {
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
 .header {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -231,7 +252,7 @@ ul {
   text-align: left;
   line-height: 1.45;
   font-size: 0.85rem;
-  color: var(--color-text-medium);
+  color: var(--color-primary-blue);
   border-left: 3px solid var(--color-primary-blue);
   padding-left: var(--spacing-sm);
 }
@@ -241,11 +262,12 @@ ul {
   font-family: var(--font-headers);
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--color-text-dark);
+  color: var(--color-primary-blue);
   margin-bottom: 2px;
 }
 
-.street, .city {
+.street,
+.city {
   display: block;
   letter-spacing: 0.2px;
 }
@@ -341,7 +363,8 @@ ul {
   transition: background var(--transition-normal);
 }
 
-.hamburger::before, .hamburger::after {
+.hamburger::before,
+.hamburger::after {
   content: '';
   position: absolute;
   width: 24px;
@@ -371,27 +394,33 @@ ul {
   padding-right: var(--spacing-lg);
   position: relative;
   z-index: 20;
-  overflow: hidden; /* Prevent video from causing overflow */
+  overflow: hidden;
+  /* Prevent video from causing overflow */
   max-height: calc(100vh - 160px);
 }
 
-/* Ambient looping background video styled behind the card */
-.content-bg-video {
+/* Highly transparent frosted glass overlay layer (same as header) to beautifully soften the background image inside content area */
+.main-content::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.05; /* 95% transparent */
-  z-index: 1;
-  pointer-events: none;
-}
-
-.construction-card {
-  background-color: rgba(255, 255, 255, 0.75);
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  z-index: 1;
+  pointer-events: none;
+  transition: background-color var(--transition-normal);
+}
+
+/* Ambient looping background video styled behind the card */
+
+.construction-card {
+  background-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-lg);
   border: 1px solid rgba(85, 131, 182, 0.18);
   padding: 2.2rem var(--spacing-lg);
@@ -405,6 +434,8 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -60px;
+  /* Posunutí modulu výše pro lepší vyváženost */
 }
 
 /* Top Warning Icon */
@@ -650,9 +681,11 @@ ul {
     transform: scale(0.65);
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
+
   100% {
     transform: scale(1.4);
     opacity: 0;
@@ -677,12 +710,29 @@ ul {
   animation: element-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.fade-in-delay-1 { animation-delay: 0.1s; }
-.fade-in-delay-2 { animation-delay: 0.2s; }
-.fade-in-delay-3 { animation-delay: 0.3s; }
-.fade-in-delay-4 { animation-delay: 0.4s; }
-.fade-in-delay-5 { animation-delay: 0.5s; }
-.fade-in-delay-6 { animation-delay: 0.7s; }
+.fade-in-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.fade-in-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.fade-in-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.fade-in-delay-4 {
+  animation-delay: 0.4s;
+}
+
+.fade-in-delay-5 {
+  animation-delay: 0.5s;
+}
+
+.fade-in-delay-6 {
+  animation-delay: 0.7s;
+}
 
 @keyframes element-fade-in {
   to {
@@ -788,7 +838,8 @@ ul {
   }
 
   .nav-menu {
-    display: none; /* Controlled by JS classes */
+    display: none;
+    /* Controlled by JS classes */
     flex-direction: column;
     padding: var(--spacing-md) 0;
     background-color: var(--color-primary-blue);
@@ -817,7 +868,8 @@ ul {
   }
 
   .nav-separator {
-    display: none; /* Hide separators on mobile column list */
+    display: none;
+    /* Hide separators on mobile column list */
   }
 
   /* Hamburger Active Transition */
@@ -865,6 +917,7 @@ ul {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -877,10 +930,12 @@ ul {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 22vh; /* Adjust height of the waves */
+  height: 22vh;
+  /* Adjust height of the waves */
   min-height: 110px;
   max-height: 190px;
-  z-index: 5; /* Behind content, in front of background circles */
+  z-index: 5;
+  /* Behind content, in front of background circles */
   pointer-events: none;
 }
 
@@ -888,7 +943,8 @@ ul {
   position: relative;
   width: 100%;
   height: 100%;
-  margin-bottom: -7px; /* Fix gap in some browsers */
+  margin-bottom: -7px;
+  /* Fix gap in some browsers */
 }
 
 .wave-foreground {
@@ -897,35 +953,36 @@ ul {
 }
 
 /* Parallax Wave Animation */
-.parallax > use {
+.parallax>use {
   animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
 }
 
-.parallax > use:nth-child(1) {
+.parallax>use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 9s;
 }
 
-.parallax > use:nth-child(2) {
+.parallax>use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 13s;
 }
 
-.parallax > use:nth-child(3) {
+.parallax>use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 16s;
 }
 
-.parallax > use:nth-child(4) {
+.parallax>use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 24s;
 }
 
 @keyframes move-forever {
   0% {
-   transform: translate3d(-90px, 0, 0);
+    transform: translate3d(-90px, 0, 0);
   }
-  100% { 
+
+  100% {
     transform: translate3d(85px, 0, 0);
   }
 }
@@ -936,23 +993,58 @@ ul {
     padding-top: var(--spacing-xs);
     padding-bottom: var(--spacing-xs);
   }
+
   .logo-img {
     height: 44px;
   }
+
   .main-content {
     padding-top: var(--spacing-xs);
     padding-bottom: var(--spacing-xs);
     max-height: calc(100vh - 120px);
   }
+
   .construction-card {
     padding: var(--spacing-sm);
   }
+
   .thank-you-text {
     margin-bottom: var(--spacing-md);
   }
+
   .sea-background {
     height: 14vh;
   }
+}
+
+/* --- 11b. FOOTER SECTION --- */
+.footer-wrapper {
+  background-color: rgba(255, 255, 255, 0.35);
+  /* Same transparent frosted glass as header */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  width: 100%;
+  position: relative;
+  z-index: 20;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  min-height: 48px;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  /* High-contrast white/grey on deep blue */
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
 }
 
 /* ==========================================================================
@@ -961,12 +1053,17 @@ ul {
 
 /* Dark Mode Variable Swapping */
 [data-theme="dark"] {
-  --color-bg: #00070e; /* Deepest luxurious brand navy for body below menu */
-  --color-bg-subtle: #001224; /* Beautiful brand navy for the top header wrapper */
-  --color-text-dark: #ffffff; /* Pure white for headings */
-  --color-text-medium: #cbd5e1; /* Slate-300 readable description text */
-  --color-text-light: #64748b; /* Slate-500 subtexts */
-  
+  --color-bg: #00070e;
+  /* Deepest luxurious brand navy for body below menu */
+  --color-bg-subtle: #337ecb;
+  /* Beautiful lighter brand navy for the top header wrapper */
+  --color-text-dark: #ffffff;
+  /* Pure white for headings */
+  --color-text-medium: #cbd5e1;
+  /* Slate-300 readable description text */
+  --color-text-light: #64748b;
+  /* Slate-500 subtexts */
+
   /* Make primary blue elements stand out elegantly */
   --color-primary-blue: #002d5a;
   --color-primary-hover: #003a75;
@@ -974,13 +1071,23 @@ ul {
 
 /* Header band background above navigation bar */
 [data-theme="dark"] .header-wrapper {
-  background-color: var(--color-bg-subtle);
-  border-bottom: 1px solid rgba(0, 174, 240, 0.06);
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Match content overlay behind the central card with the light dark-mode header glass */
+[data-theme="dark"] .main-content::before {
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* Dark Mode Background Adjustments */
 [data-theme="dark"] .decor-circle {
-  opacity: 0.22; /* Softer blurs against dark bg */
+  opacity: 0.22;
+  /* Softer blurs against dark bg */
 }
 
 /* Seamless wave blending with dark background */
@@ -991,12 +1098,13 @@ ul {
 
 /* Glassmorphism Card in Dark Mode */
 [data-theme="dark"] .construction-card {
-  background-color: rgba(0, 48, 97, 0.48);
-  border: 1px solid rgba(0, 174, 240, 0.25);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 
-    0 20px 40px -15px rgba(0, 0, 0, 0.6), 
+  background-color: rgba(0, 8, 20, 0.65);
+  /* More transparent and dark glassmorphism */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 20px 40px -15px rgba(0, 0, 0, 0.6),
     0 0 30px rgba(0, 174, 240, 0.04);
 }
 
@@ -1032,7 +1140,7 @@ ul {
 }
 
 [data-theme="dark"] .company-address {
-  color: #cbd5e1;
+  color: var(--color-primary-blue);
 }
 
 /* Interactive Popover Glassmorphism in Dark Mode */
@@ -1058,11 +1166,13 @@ ul {
 
 [data-theme="dark"] .btn-popover-ok {
   background-color: var(--color-accent-cyan);
-  color: var(--color-bg); /* Deep contrast text matching theme background */
+  color: var(--color-bg);
+  /* Deep contrast text matching theme background */
 }
 
 [data-theme="dark"] .btn-popover-ok:hover {
-  background-color: #33beff; /* Brighter hover cyan */
+  background-color: #33beff;
+  /* Brighter hover cyan */
 }
 
 /* --- THEME TOGGLE BUTTON STYLING --- */
@@ -1131,7 +1241,8 @@ ul {
 /* Adjust top header spacing for floating toggle on desktop */
 @media (min-width: 993px) {
   .header {
-    padding-right: 4.5rem; /* Prevents text colliding with float button */
+    padding-right: 4.5rem;
+    /* Prevents text colliding with float button */
   }
 }
 
@@ -1143,13 +1254,14 @@ ul {
     width: 38px;
     height: 38px;
   }
+
   .theme-toggle-btn .moon-icon {
     width: 16px;
     height: 16px;
   }
+
   .theme-toggle-btn .sun-icon {
     width: 18px;
     height: 18px;
   }
 }
-
